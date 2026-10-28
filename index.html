@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f3ec" />
+    <meta name="description" content="A focused, simple order management dashboard." />
+    <title>Solid / Order — Order Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="#top" aria-label="Solid Order Manager home">
+                <span class="brand-mark">SO</span>
+                <span>Solid<span class="brand-muted">/</span>Order</span>
+            </a>
+            <div class="header-note" aria-label="Store status">
+                <span class="status-dot"></span>
+                Store open
+                <span class="divider"></span>
+                Cairo <span aria-hidden="true">&middot;</span> 10:28 AM
+            </div>
+            <button class="cart-jump" id="cartJump" type="button" aria-label="Jump to cart">
+                Cart <span class="cart-count" id="headerCartCount">0</span>
+            </button>
+        </header>
+
+        <main id="top">
+            <section class="hero" aria-labelledby="page-title">
+                <div class="hero-copy">
+                    <p class="eyebrow">ORDER MANAGEMENT / 01</p>
+                    <h1 id="page-title">Build an order<br /><em>that works.</em></h1>
+                    <p class="hero-description">Add products to your cart, choose your customer tier, and place an order in seconds.</p>
+                </div>
+                <div class="hero-stamp" aria-label="Fast, fair, simple">
+                    <span>FAST</span><strong>+</strong><span>FAIR</span><strong>+</strong><span>SIMPLE</span>
+                </div>
+            </section>
+
+            <section class="workspace" aria-label="Order builder">
+                <div class="catalog-column">
+                    <div class="section-heading">
+                        <div><p class="eyebrow">AVAILABLE NOW</p><h2>Choose products</h2></div>
+                        <span class="product-total" id="productTotal">04 items</span>
+                    </div>
+                    <div class="product-grid" id="productGrid"></div>
+
+                    <div class="how-it-works">
+                        <p class="eyebrow">HOW IT WORKS</p>
+                        <div class="steps">
+                            <div class="step"><span>01</span><p>Select<br />products</p></div>
+                            <span class="step-arrow" aria-hidden="true">&rarr;</span>
+                            <div class="step"><span>02</span><p>Pick a<br />discount</p></div>
+                            <span class="step-arrow" aria-hidden="true">&rarr;</span>
+                            <div class="step"><span>03</span><p>Place your<br />order</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="order-card" id="orderCard" aria-label="Your order">
+                    <div class="order-card-header">
+                        <div><p class="eyebrow">YOUR ORDER</p><h2>Cart <span id="cartTitleCount">(0)</span></h2></div>
+                        <button class="clear-button" id="clearCart" type="button">Clear all</button>
+                    </div>
+                    <div class="cart-items" id="cartItems">
+                        <div class="empty-cart">
+                            <div class="empty-icon" aria-hidden="true">&plus;</div>
+                            <h3>Your cart is empty</h3>
+                            <p>Pick something from the catalog<br />to get started.</p>
+                        </div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="discount-label"><span>Discount tier</span><span class="discount-badge" id="discountBadge">20% OFF</span></div>
+                        <div class="discount-options" role="group" aria-label="Discount tier">
+                            <button class="discount-option active" data-discount="vip" type="button">VIP <small>20%</small></button>
+                            <button class="discount-option" data-discount="employee" type="button">Employee <small>15%</small></button>
+                            <button class="discount-option" data-discount="none" type="button">Standard <small>0%</small></button>
+                        </div>
+                        <div class="summary-line"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+                        <div class="summary-line discount-line"><span>Discount</span><strong id="discountAmount">&minus; $0.00</strong></div>
+                        <div class="summary-divider"></div>
+                        <div class="total-line"><span>Total</span><strong id="finalTotal">$0.00</strong></div>
+                        <button class="place-order" id="placeOrder" type="button" disabled>Place order <span aria-hidden="true">&nearr;</span></button>
+                        <p class="secure-note"><span aria-hidden="true">&#10022;</span> No payment required for this demo</p>
+                    </div>
+                </aside>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <span>Solid Order Manager</span>
+            <span>Built around simple services and clear decisions.</span>
+            <span class="mono">v1.0.0</span>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span class="toast-check" aria-hidden="true">&#10003;</span>
+        <span id="toastMessage">Order placed successfully!</span>
+    </div>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
